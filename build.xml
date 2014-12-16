@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- This build file default run jetty in the end of build -->
-<project basedir="." default="help" name="malasong" xmlns:ivy="antlib:org.apache.ivy.ant" xmlns:if="ant:if" xmlns:unless="ant:unless">
+<project basedir="." default="help" name="malasong1" xmlns:ivy="antlib:org.apache.ivy.ant" xmlns:if="ant:if" xmlns:unless="ant:unless">
 
 	<!-- ======================================= -->
 	<!--           Property Settings             -->
