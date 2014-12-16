@@ -1,0 +1,12 @@
+.*
+*.class
+*.jar
+*.war
+*.ear
+/webapp/upload
+/webapp/temp
+lib
+target
+dist
+build
+!.gitignore
