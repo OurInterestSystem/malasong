@@ -12,9 +12,9 @@
   <body>
 	
 	<table>
-		<tr><th>姓名</th><th>班级</th></tr>
+		<tr><th>姓名</th><th>年龄</th><th>班级</th></tr>
 		<c:forEach var="user" items="${users}">
-		<tr><td>${user.name}</td><td>${user.clazz.name}</td></tr>
+		<tr><td>${user.name}</td><td>${user.year}</td><td>${user.clazz.name}</td></tr>
 		</c:forEach>
 	</table>
 

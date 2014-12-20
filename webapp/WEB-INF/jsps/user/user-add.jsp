@@ -14,11 +14,11 @@
 		姓名: <input name="name" />
 		年龄: <input name="year" />
 		班级: 
-		<c:forEach var="clazz" items="${clazzes}">
 		<select name="clazz.id">
+		<c:forEach var="clazz" items="${clazzes}">
 			<option value="${clazz.id}">${clazz.name}</option>
-		</select>
 		</c:forEach>
+		</select>	
 		<input type="submit" value="创建">
 	</form>
 
