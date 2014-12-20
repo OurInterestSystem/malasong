@@ -13,6 +13,9 @@
 	
 	<table>
 		<tr><th>姓名</th><th>班级</th></tr>
+		<c:forEach var="user" items="${users}">
+		<tr><td>${user.name}</td><td>${user.clazz.name}</td></tr>
+		</c:forEach>
 	</table>
 
   </body>
