@@ -7,22 +7,17 @@ import org.springframework.stereotype.Service;
 
 import com.demo2do.core.persistence.GenericDaoSupport;
 import com.demo2do.core.service.impl.GenericServiceImpl;
-import com.malasong.entity.User;
-import com.malasong.service.UserService;
+import com.malasong.entity.Clazz;
+import com.malasong.service.ClazzService;
 
-@Service("userService")
-public class UserServiceImpl extends GenericServiceImpl<User>  implements UserService {
+@Service("clazzService")
+public class  ClazzServiceImpl extends GenericServiceImpl<Clazz>  implements ClazzService {
 
 	@Autowired
 	private GenericDaoSupport genericDaoSupport;
 
-	public List<User> list() {
-		return genericDaoSupport.loadAll(User.class);
+	public List<Clazz> list() {
+		return genericDaoSupport.loadAll(Clazz.class);
 	}
 
-	public void create(User user) {
-		genericDaoSupport.save(user);
-	}
-
-	
 }

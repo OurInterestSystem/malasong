@@ -8,4 +8,5 @@ public interface UserService {
 
 	public List<User> list();
 
+	public void create(User user);
 }
