@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -41,7 +42,7 @@ public class UserController {
 		return modelAndView;
 	}
 
-	@RequestMapping("create")
+	@RequestMapping("/create")
 	public ModelAndView create() {
 		ModelAndView modelAndView = new ModelAndView("user/user-add");
 
@@ -54,6 +55,26 @@ public class UserController {
 	@RequestMapping(method=RequestMethod.POST)
 	public String onCreate(User user) {
 		userService.create(user);
+		return "redirect:/users";
+	}
+
+	@RequestMapping("/{id}/edit")
+	public ModelAndView edit(@PathVariable("id") Long id) {
+		ModelAndView modelAndView = new ModelAndView("user/user-edit");
+
+		User user = userService.load(User.class, id);
+		List<Clazz> clazzes = clazzService.list();
+
+		modelAndView.addObject("user", user);
+		modelAndView.addObject("clazzes", clazzes);
+
+		return modelAndView;
+	}
+
+	@RequestMapping(value = "/{id}", method=RequestMethod.PATCH)
+	public String onEdit(@PathVariable("id") Long id, User userForm) {
+		User user = userService.load(User.class, id);
+		userService.edit(user, userForm.getName(), userForm.getYear(), userForm.getClazz());
 		return "redirect:/users";
 	}
 

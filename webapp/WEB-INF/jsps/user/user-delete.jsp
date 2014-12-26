@@ -10,13 +10,17 @@
   </head>
   
   <body>
-	
-	<table>
-		<tr><th>姓名</th><th>班级</th><th>操作</th></tr>
-		<c:forEach var="user" items="${users}">
-		<tr><td>${user.name}</td><td>${user.clazz.name}</td><td><a href="/malasong/users/${user.id}/edit">编辑</a> | <a href="#">删除</a></td></tr>
+	<form action="/malasong/users" method="POST">
+		姓名: <input name="name" />
+		年龄: <input name="year" />
+		班级: 
+		<c:forEach var="clazz" items="${clazzes}">
+		<select name="clazz.id">
+			<option value="${clazz.id}">${clazz.name}</option>
+		</select>
 		</c:forEach>
-	</table>
+		<input type="submit" value="创建">
+	</form>
 
   </body>
 </html>

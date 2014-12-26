@@ -22,6 +22,13 @@ public class User {
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	private Clazz clazz;
 
+	public User edit(String name, int year, Clazz clazz) {
+		this.name = name;
+		this.year = year;
+		this.clazz = clazz;
+		return this;
+	}
+
 	public Long getId() {
 		return id;
 	}

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.demo2do.core.persistence.GenericDaoSupport;
 import com.demo2do.core.service.impl.GenericServiceImpl;
+import com.malasong.entity.Clazz;
 import com.malasong.entity.User;
 import com.malasong.service.UserService;
 
@@ -22,6 +23,11 @@ public class UserServiceImpl extends GenericServiceImpl<User>  implements UserSe
 
 	public void create(User user) {
 		genericDaoSupport.save(user);
+	}
+
+	public void edit(User user, String name, int year, Clazz clazz) {
+		user.edit(name, year, clazz);
+		genericDaoSupport.update(user);
 	}
 
 	
