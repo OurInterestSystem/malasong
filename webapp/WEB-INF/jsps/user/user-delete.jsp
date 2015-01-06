@@ -10,16 +10,10 @@
   </head>
   
   <body>
-	<form action="/malasong/users" method="POST">
-		姓名: <input name="name" />
-		年龄: <input name="year" />
-		班级: 
-		<c:forEach var="clazz" items="${clazzes}">
-		<select name="clazz.id">
-			<option value="${clazz.id}">${clazz.name}</option>
-		</select>
-		</c:forEach>
-		<input type="submit" value="创建">
+	<form action="/malasong/users/${user.id}" method="POST">
+		<input type="hidden" name="_method" value="DELETE" />
+		<input type="submit" value="确认" />
+		<a href="/malasong/users">取消</a>
 	</form>
 
   </body>

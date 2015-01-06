@@ -78,4 +78,19 @@ public class UserController {
 		return "redirect:/users";
 	}
 
+	@RequestMapping("/{id}/delete")
+	public ModelAndView delete(@PathVariable("id") Long id) {
+
+		ModelAndView modelAndView = new ModelAndView("user/user-delete");
+		User user = userService.load(User.class, id);
+		modelAndView.addObject("user", user);
+		return modelAndView;
+	}
+
+	@RequestMapping(value = "/{id}", method=RequestMethod.DELETE)
+	public String onDelete(@PathVariable("id") Long id) {
+		User user = userService.load(User.class, id);
+		userService.delete(user);
+		return "redirect:/users";
+	}
 }
