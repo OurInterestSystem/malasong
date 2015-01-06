@@ -16,12 +16,9 @@ public class HomeController {
 	 * 
 	 * @return
 	 */
-	@RequestMapping(value={"", "/login"})
-	public ModelAndView login() {
-		
-		ModelAndView modelAndView = new ModelAndView("login");
-
-		return modelAndView;
+	@RequestMapping("/home")
+	public String login() {
+		return "redirect:/users";
 	}
 
 }

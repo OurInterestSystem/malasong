@@ -5,7 +5,7 @@
 		<div class="container">
 		
 			<h1 class="logo">
-				<a title="马拉松超级系统" href="${ctx}">马拉松超级系统</a>
+				<a title="马拉松超级系统" href="/malasong/home">马拉松超级系统</a>
 			</h1>
 			
 			<sec:authorize access="isFullyAuthenticated()">

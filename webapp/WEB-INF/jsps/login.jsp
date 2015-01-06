@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="zh-CN">
   <head>
@@ -22,12 +21,12 @@
 			
 			<div id="login-panel" class="well">
 			
-				<form id="login-form" action="${ctx}/j_spring_security_check" method="POST" data-validate="true">
+				<form id="login-form" action="/malasong/j_spring_security_check" method="POST" data-validate="true">
 					
 					<h2>账号&nbsp;-&nbsp;登录</h2>
 					
 					<c:if test="${not empty errorMessage}">
-						<div class="alert alert-danger"><i class="glyphicon glyphicon-remove"></i>&nbsp;&nbsp;<fmt:message key="${errorMessage}" /></div>
+						<div class="alert alert-danger"><i class="glyphicon glyphicon-remove"></i>&nbsp;&nbsp;${errorMessage}</div>
 					</c:if>
 					
 					<div class="input-group input-group-lg">

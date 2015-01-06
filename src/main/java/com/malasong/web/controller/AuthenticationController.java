@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.demo2do.arizona.web.controller;
+package com.malasong.web.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -15,9 +15,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import com.demo2do.arizona.entity.security.Principal;
-import com.demo2do.core.web.resolver.Secure;
 
 /**
  * @author Downpour
@@ -38,7 +35,7 @@ public class AuthenticationController {
 		logger.info("Session timeout ... The system will redirect to login page");
 		
 		// add a flag into session to display on login page
-		redirectAttributes.addFlashAttribute("timeoutErrorMessage", "security.authentication.timeout");
+		redirectAttributes.addFlashAttribute("timeoutErrorMessage", "验证超时");
 		
 		return "redirect:/login";
 	}
@@ -61,7 +58,7 @@ public class AuthenticationController {
 				logger.error("Authentication process exception: " + authenticationException.getMessage());
 			}			
 			
-			request.setAttribute("errorMessage", "security.authentication.fail");
+			request.setAttribute("errorMessage", "验证失败");
 			
 			if (authenticationException.getCause() instanceof LockedException) {
 				request.setAttribute("errorMessage", authenticationException.getMessage());
@@ -82,7 +79,7 @@ public class AuthenticationController {
 	 * @return
 	 */
 	@RequestMapping("/post-login")
-	public String postLogin(@Secure Principal principal) {
+	public String postLogin() {
 		
 		return "redirect:/home";
 	}
