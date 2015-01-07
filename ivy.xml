@@ -29,6 +29,9 @@
     </configurations>
         
     <dependencies>
+ 
+		<dependency org="javax.mail" name="mail" rev="1.4.7"  conf="compile->default,sources"/>
+		<dependency org="jaf" name="activation" rev="1.0.2"  conf="compile->default,sources"/>
                
 		<!-- spring core dependency -->
 		<dependency org="org.springframework" name="spring-core" rev="4.0.2.RELEASE" conf="compile->default,sources"/>
